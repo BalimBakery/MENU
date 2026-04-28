@@ -19,7 +19,6 @@
             color: var(--koyu-kahve);
             margin: 0;
             padding: 0;
-            /* Altıgen petek dokusu */
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50 5 L89 27.5 L89 72.5 L50 95 L11 72.5 L11 27.5 Z" fill="none" stroke="%23d4a373" stroke-width="0.3" opacity="0.15"/></svg>');
         }
 
@@ -32,9 +31,10 @@
         }
 
         .main-logo {
-            width: 130px;
+            width: 140px;
             height: auto;
             margin-bottom: 10px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
 
         .container {
@@ -86,60 +86,67 @@
             padding: 40px;
             font-size: 11px;
             opacity: 0.6;
-            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.png" alt="Balım Bakery" class="main-logo">
+    <img src="logo.png.png" alt="Balım Bakery" class="main-logo">
     <div style="font-weight: bold; letter-spacing: 2px;">BALIM BAKERY</div>
 </header>
 
 <div class="container">
 
-    <div class="category-title">3D Seçeneklerimiz</div>
+    <div class="category-title">Aperatifler & Hamur İşi</div>
 
     <div class="menu-item">
-        <model-viewer src="Meshy_AI_Copper_Mug_with_Mint__0428174453_generate.glb.glb" 
-                      ar camera-controls auto-rotate shadow-intensity="1">
-        </model-viewer>
+        <model-viewer src="Meshy_AI_Sesame_Ring_0428173300_generateglb-v1.glb" ar camera-controls auto-rotate shadow-intensity="1"></model-viewer>
+        <div class="item-details">
+            <span class="item-name">Gevrek Simit</span>
+            <span class="item-price">25₺</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <model-viewer src="Meshy_AI_Sesame_Braided_Ring_B_0428180424_generate.glb.glb" ar camera-controls auto-rotate shadow-intensity="1"></model-viewer>
+        <div class="item-details">
+            <span class="item-name">Yumuşak Açma</span>
+            <span class="item-price">25₺</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <model-viewer src="Meshy_AI_Crispy_Cheese_Balls_0428180542_generateglb-v2.glb" ar camera-controls auto-rotate shadow-intensity="1"></model-viewer>
+        <div class="item-details">
+            <span class="item-name">Çıtır Tavuk Topları</span>
+            <span class="item-price">140₺</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <model-viewer src="Meshy_AI_French_Fries_in_a_Pap_0428180518_generate.glb.glb" ar camera-controls auto-rotate shadow-intensity="1"></model-viewer>
+        <div class="item-details">
+            <span class="item-name">Patates Kızartması</span>
+            <span class="item-price">80₺</span>
+        </div>
+    </div>
+
+    <div class="category-title">İçecekler</div>
+
+    <div class="menu-item">
+        <model-viewer src="Meshy_AI_Copper_Mug_with_Mint__0428174453_generate.glb.glb" ar camera-controls auto-rotate shadow-intensity="1"></model-viewer>
         <div class="item-details">
             <span class="item-name">Geleneksel Ayran</span>
             <span class="item-price">45₺</span>
         </div>
     </div>
 
-    <div class="menu-item">
-        <model-viewer src="et.glb" ar camera-controls auto-rotate shadow-intensity="1"></model-viewer>
-        <div class="item-details">
-            <span class="item-name">Köfteli Sandviç</span>
-            <span class="item-price">290₺</span>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <model-viewer src="tavuk.glb" ar camera-controls auto-rotate shadow-intensity="1"></model-viewer>
-        <div class="item-details">
-            <span class="item-name">Izgara Tavuklu Sandviç</span>
-            <span class="item-price">230₺</span>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <model-viewer src="tatl%C4%B1.glb" ar camera-controls auto-rotate shadow-intensity="1"></model-viewer>
-        <div class="item-details">
-            <span class="item-name">Günün Tatlısı</span>
-            <span class="item-price">180₺</span>
-        </div>
-    </div>
-
 </div>
 
 <div class="footer-text">
-    Balım Bakery - QR Menü Projesi<br>
-    Tüm modeller yapay zeka ile oluşturulmuştur.
+    Balım Bakery - Mustafa Miraç - 2026<br>
+    3D Görselleştirme Projesi
 </div>
 
 </body>
