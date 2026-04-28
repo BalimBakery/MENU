@@ -20,8 +20,69 @@
             margin: 0;
             padding: 0;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50 5 L89 27.5 L89 72.5 L50 95 L11 72.5 L11 27.5 Z" fill="none" stroke="%23d4a373" stroke-width="0.3" opacity="0.15"/></svg>');
+            overflow-x: hidden;
         }
 
+        /* --- KARŞILAMA EKRANI (SPLASH SCREEN) --- */
+        #intro-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--arka-plan);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50 5 L89 27.5 L89 72.5 L50 95 L11 72.5 L11 27.5 Z" fill="none" stroke="%23d4a373" stroke-width="0.3" opacity="0.15"/></svg>');
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        .intro-logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .slogan {
+            font-size: 18px;
+            color: var(--koyu-kahve);
+            font-style: italic;
+            margin-bottom: 40px;
+            text-align: center;
+            padding: 0 20px;
+            letter-spacing: 1px;
+        }
+
+        .browse-btn {
+            background-color: var(--altin-bal);
+            color: var(--beyaz);
+            border: none;
+            padding: 15px 45px;
+            font-size: 18px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.4);
+            transition: 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .browse-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 8px rgba(212, 163, 115, 0.4);
+        }
+
+        /* --- MENÜ TASARIMI --- */
         header {
             text-align: center;
             padding: 25px 20px;
@@ -31,10 +92,9 @@
         }
 
         .main-logo {
-            width: 140px;
+            width: 100px;
             height: auto;
             margin-bottom: 10px;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
 
         .container {
@@ -56,7 +116,6 @@
             letter-spacing: 1px;
         }
 
-        /* --- YENİ LİSTE TASARIMI --- */
         .menu-list-item {
             background: var(--beyaz);
             border-radius: 12px;
@@ -69,12 +128,7 @@
             border: 1px solid rgba(212, 163, 115, 0.2);
         }
 
-        .item-info {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
+        .item-info { display: flex; flex-direction: column; gap: 5px; }
         .item-name { font-weight: bold; font-size: 16px; }
         .item-price { color: var(--altin-bal); font-weight: bold; font-size: 15px; }
 
@@ -91,81 +145,91 @@
             align-items: center;
             gap: 5px;
             font-family: 'Georgia', serif;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        .view-btn:active {
-            transform: scale(0.95);
-            background-color: var(--altin-bal);
-        }
+        .view-btn:active { background-color: var(--altin-bal); transform: scale(0.95); }
 
-        /* --- 3D POPUP (MODAL) TASARIMI --- */
+        /* --- 3D POPUP (MODAL) --- */
         .modal-overlay {
-            display: none; /* İlk başta gizli */
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            display: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
+            z-index: 3000;
+            justify-content: center; align-items: center;
             backdrop-filter: blur(5px);
         }
 
         .modal-content {
             background: var(--beyaz);
-            width: 90%;
-            max-width: 400px;
-            border-radius: 20px;
-            padding: 20px;
-            position: relative;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 90%; max-width: 400px;
+            border-radius: 20px; padding: 20px;
+            position: relative; text-align: center;
         }
 
         .close-btn {
-            position: absolute;
-            top: 15px; right: 15px;
-            background: #e74c3c;
-            color: white;
-            border: none;
-            width: 35px; height: 35px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
+            position: absolute; top: 15px; right: 15px;
+            background: #e74c3c; color: white; border: none;
+            width: 35px; height: 35px; border-radius: 50%;
+            font-size: 18px; cursor: pointer; font-weight: bold;
+            display: flex; justify-content: center; align-items: center; z-index: 10;
         }
 
-        #modalTitle {
-            margin-top: 5px;
-            color: var(--koyu-kahve);
-            font-size: 20px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--altin-bal);
-            padding-bottom: 10px;
-        }
-
-        model-viewer {
-            width: 100%;
-            height: 300px;
-            background-color: #fafafa;
-            border-radius: 10px;
-        }
+        #modalTitle { color: var(--koyu-kahve); font-size: 20px; margin-bottom: 15px; border-bottom: 2px solid var(--altin-bal); padding-bottom: 10px; margin-top: 5px; }
+        model-viewer { width: 100%; height: 300px; background-color: #fafafa; border-radius: 10px; }
+        
+        .footer-text { text-align: center; padding: 30px; font-size: 11px; opacity: 0.5; }
     </style>
 </head>
 <body>
 
+<div id="intro-screen">
+    <img src="logo.png.png" alt="Balım Bakery Logo" class="intro-logo">
+    <p class="slogan">Günün en sıcak kaçamağı Balım bakery.</p>
+    <button class="browse-btn" onclick="startMenu()">Gözat</button>
+</div>
+
 <header>
     <img src="logo.png.png" alt="Balım Bakery" class="main-logo">
-    <div style="font-weight: bold; letter-spacing: 2px;">BALIM BAKERY</div>
+    <div style="font-weight: bold; letter-spacing: 2px; font-size: 18px;">BALIM BAKERY</div>
 </header>
 
 <div class="container">
 
+    <div class="category-title">Sandviç Çeşitleri</div>
+
+    <div class="menu-list-item">
+        <div class="item-info">
+            <span class="item-name">Köfteli Sandviç</span>
+            <span class="item-price">290₺</span>
+        </div>
+        <button class="view-btn" onclick="open3D('Köfteli.glb', 'Köfteli Sandviç')">👁 Görüntüle</button>
+    </div>
+
+    <div class="menu-list-item">
+        <div class="item-info">
+            <span class="item-name">Izgara Tavuklu Sandviç</span>
+            <span class="item-price">230₺</span>
+        </div>
+        <button class="view-btn" onclick="open3D('Meshy_AI_Grilled_Chicken_Sandw_0428203201_generate.glb.glb', 'Izgara Tavuklu Sandviç')">👁 Görüntüle</button>
+    </div>
+
+    <div class="menu-list-item">
+        <div class="item-info">
+            <span class="item-name">Peynirli Sandviç</span>
+            <span class="item-price">180₺</span>
+        </div>
+        <button class="view-btn" onclick="open3D('Meshy_AI_Stacked_Cheese_Sandwi_0428194243_generateglb-v3.glb', 'Peynirli Sandviç')">👁 Görüntüle</button>
+    </div>
+
     <div class="category-title">Aperatifler & Hamur İşi</div>
+
+    <div class="menu-list-item">
+        <div class="item-info">
+            <span class="item-name">Poğaça</span>
+            <span class="item-price">30₺</span>
+        </div>
+        <button class="view-btn" onclick="open3D('Poğaça.glb', 'Poğaça')">👁 Görüntüle</button>
+    </div>
 
     <div class="menu-list-item">
         <div class="item-info">
@@ -203,6 +267,14 @@
 
     <div class="menu-list-item">
         <div class="item-info">
+            <span class="item-name">Kola</span>
+            <span class="item-price">70₺</span>
+        </div>
+        <button class="view-btn" onclick="open3D('ME4143~1.STL.glb', 'Kola')">👁 Görüntüle</button>
+    </div>
+
+    <div class="menu-list-item">
+        <div class="item-info">
             <span class="item-name">Ayran</span>
             <span class="item-price">45₺</span>
         </div>
@@ -219,18 +291,32 @@
     </div>
 </div>
 
+<div class="footer-text">
+    Balım Bakery - Mustafa Miraç - 2026<br>
+    Dijital Menü Tasarımı
+</div>
+
 <script>
-    // Butona basıldığında modeli yükleyen kod
+    // Karşılama ekranını kapatma fonksiyonu
+    function startMenu() {
+        const introScreen = document.getElementById('intro-screen');
+        introScreen.style.opacity = "0"; // Yavaşça kaybolma efekti
+        setTimeout(() => {
+            introScreen.style.visibility = "hidden"; // Tamamen gizle
+        }, 500); // 0.5 saniye sonra gizle
+    }
+
+    // 3D Model açma fonksiyonu
     function open3D(modelSrc, modelName) {
         document.getElementById('modalTitle').innerText = modelName;
         document.getElementById('mainViewer').src = modelSrc;
         document.getElementById('modelModal').style.display = "flex";
     }
 
-    // Çarpıya basıldığında pencereyi kapatan ve hafızayı temizleyen kod
+    // 3D Model kapatma fonksiyonu
     function close3D() {
         document.getElementById('modelModal').style.display = "none";
-        document.getElementById('mainViewer').src = ""; // Modeli kapatınca RAM'den temizler
+        document.getElementById('mainViewer').src = "";
     }
 </script>
 
